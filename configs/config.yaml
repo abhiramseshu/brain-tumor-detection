@@ -1,0 +1,44 @@
+dataset:
+  braTS:
+    path: "data/raw/BraTS"
+    modalities: 
+      - "T1"
+      - "T1c"
+      - "T2"
+      - "FLAIR"
+    preprocessing:
+      resize: [256, 256]
+      normalize: true
+      augmentations:
+        - "rotation"
+        - "flipping"
+  kaggle:
+    path: "data/raw/kaggle"
+    preprocessing:
+      resize: [256, 256]
+      normalize: true
+      augmentations:
+        - "rotation"
+        - "flipping"
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  validation_split: 0.2
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+
+model:
+  architecture: "cnn"  # Options: "cnn", "unet"
+  input_shape: [256, 256, 1]
+  num_classes: 3  # Adjust based on the number of tumor types or segmentation classes
+
+logging:
+  log_dir: "logs"
+  log_level: "info"

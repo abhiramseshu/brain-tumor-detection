@@ -1,0 +1,28 @@
+model:
+  type: "CNN"  # Options: "CNN", "U-Net"
+  input_shape: [128, 128, 3]  # Adjust based on your input image size and channels
+  num_classes: 3  # Adjust based on the number of tumor classes
+  dropout_rate: 0.5
+  batch_norm: true
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  optimizer: "adam"  # Options: "adam", "sgd"
+  loss_function: "categorical_crossentropy"  # Options: "binary_crossentropy", "categorical_crossentropy"
+
+data:
+  braTS_data_path: "data/raw/BraTS"
+  kaggle_data_path: "data/raw/kaggle"
+  processed_data_path: "data/processed"
+  validation_split: 0.2  # Fraction of data to be used for validation
+
+augmentation:
+  rotation_range: 20
+  width_shift_range: 0.1
+  height_shift_range: 0.1
+  shear_range: 0.1
+  zoom_range: 0.1
+  horizontal_flip: true
+  fill_mode: "nearest"
