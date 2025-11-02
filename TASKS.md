@@ -9,8 +9,8 @@
 ---
 
 ## 📁 Phase 2: Data Collection & Organization
-- [ ] Download BraTS 2023 dataset (~50GB)
-- [ ] Download Kaggle classification dataset (~250MB)
+- [x] Download BraTS 2023 dataset (~50GB)
+- [x] Download Kaggle classification dataset (~250MB)
 - [ ] Extract and organize data
 - [ ] Verify data structure
 
